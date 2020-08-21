@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Unit 2 Assessment</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>To Do List</h1>
+    <%if(Todos.length){%>
+    <ul id="todos">
+      <%Todos.forEach((t)=>{%>
+      <li><%=t.todo%> - <%=t.done ? "Done" : "Not Done"%></li>
+      <%});%>
+    </ul>
+    <%}else{%>
+    <h2>There are no To Dos yet!</h2>
+    <%}%>
+    <hr />
+    <form id="todoform" action="/" method="POST">
+      <input type="text" name="todo" />
+      <button type="submit" id="add" name="add">ADD TO DO</button>
+    </form>
   </body>
+
+  <!-- <script type="text/javascript" defer>
+    todo();
+    document.getElementById("add").addEventListener("click", todo);
+
+    function todo() {
+      fetch("http://localhost:3000/all")
+        .then((response) => response.json())
+        .then((todos) => {
+          if (todos.length) {
+            document.getElementById("todoform").reset();
+            document.getElementById("todos").innerHTML = "";
+            todos.forEach((todo) => {
+              document.getElementById("todos").innerHTML += `<li>${
+                todo.todo
+              } - ${todo.done ? "Done" : "Not Done"}</li>`;
+            });
+          } else {
+            document.getElementById("todoform").reset();
+            document.getElementById("todos").innerHTML =
+              "<h2>There are no To Dos yet!</h2>";
+          }
+        });
+    }
+  </script> -->
 </html>
