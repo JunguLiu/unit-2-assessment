@@ -3,7 +3,6 @@ var router = express.Router();
 var indexCtrl = require("../controllers/index");
 
 /* GET home page. */
-router.get("/", indexCtrl.index);
-router.post("/", indexCtrl.post);
-router.delete("/:todo", indexCtrl.deleteOne);
+
+router.post("/:todo", indexCtrl.deleteOne);
 module.exports = router;

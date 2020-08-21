@@ -12,7 +12,13 @@ function post(req, res) {
   Todos.push(todo);
   res.redirect("/");
 }
+function deleteOne(req, res) {
+  const idx = Todos.findIndex((todo) => todo.todo == req.params.todo);
+  Todos.splice(idx, 1);
+  res.redirect("/");
+}
 module.exports = {
   index,
   post,
+  deleteOne,
 };

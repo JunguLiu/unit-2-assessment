@@ -9,7 +9,12 @@
     <%if(Todos.length){%>
     <ul id="todos">
       <%Todos.forEach((t)=>{%>
-      <li><%=t.todo%> - <%=t.done ? "Done" : "Not Done"%></li>
+      <li>
+        <%=t.todo%> - <%=t.done ? "Done" : "Not Done"%>
+        <form action="/delete/<%=t.todo%>" class="delete-form" method="POST">
+          <button type="submit">DELETE</button>
+        </form>
+      </li>
       <%});%>
     </ul>
     <%}else{%>
